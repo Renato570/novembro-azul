@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#082f49">
+<meta name="description" content="Novembro Azul em Alfredo Chaves: um quiz rápido, leve e sem vergonha para cuidar melhor da saúde do homem.">
+<title>Desafio Azul | Saúde do homem</title>
+<style>
+:root{--navy:#082f49;--blue:#075985;--cyan:#67e8f9;--sky:#e0f2fe;--cream:#fffdf6;--ink:#123044;--muted:#567080;--green:#166534;--red:#9f1239;--line:#cfe3ec}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#eaf8fc 0,#f8fcfd 48%,#fffdf6 100%);line-height:1.5}
+a{color:inherit}
+.topbar{background:var(--navy);color:white;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.2px}
+.ribbon{width:27px;height:36px;position:relative;display:inline-block;transform:rotate(8deg)}
+.ribbon:before,.ribbon:after{content:"";position:absolute;width:10px;height:29px;border:5px solid var(--cyan);border-radius:9px;top:0}
+.ribbon:before{left:2px;transform:rotate(-25deg)}
+.ribbon:after{right:2px;transform:rotate(25deg)}
+.topbar small{color:#c7edf7;font-size:.78rem;text-align:right}
+main{width:min(100% - 28px,940px);margin:0 auto}
+.hero{padding:42px 0 28px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:28px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#cffafe;color:#164e63;font-weight:800;border-radius:999px;padding:7px 12px;font-size:.78rem;text-transform:uppercase;letter-spacing:.7px}
+h1{font-size:clamp(2.35rem,6vw,4.6rem);line-height:.98;letter-spacing:-2px;color:var(--navy);margin:18px 0}
+h1 span{color:var(--blue)}
+.lead{font-size:1.08rem;color:#35566a;max-width:560px}
+.hero-art{min-height:245px;background:linear-gradient(145deg,#075985,#082f49);border-radius:28px;padding:22px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 18px 38px #082f4922}
+.hero-art:before{content:"";position:absolute;width:230px;height:230px;border:1px solid #ffffff30;border-radius:50%;right:-50px;top:-70px}
+.hero-art:after{content:"";position:absolute;width:180px;height:180px;border:1px solid #ffffff25;border-radius:50%;left:-65px;bottom:-90px}
+.art-card{z-index:1;background:#f0fbff;border-radius:22px;padding:20px 22px;text-align:center;max-width:260px;transform:rotate(-3deg);box-shadow:0 12px 25px #001c2b55}
+.art-icon{font-size:3.4rem;line-height:1.2}
+.art-card strong{display:block;color:var(--navy);font-size:1.28rem}
+.art-card p{margin:5px 0 0;color:#476477;font-size:.9rem}
+.btn{border:0;border-radius:14px;padding:14px 18px;font:inherit;font-weight:850;cursor:pointer;transition:transform .15s,box-shadow .15s;background:var(--navy);color:white;display:inline-flex;justify-content:center;align-items:center;gap:8px;text-decoration:none}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px #082f4925}
+.btn:focus-visible,.answer:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+.btn.primary{background:#0891b2;color:#032b3a}
+.btn.secondary{background:white;color:var(--navy);border:1px solid var(--line)}
+.hero .btn{margin-top:14px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 34px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:17px;padding:15px;box-shadow:0 5px 14px #164e6308}
+.fact b{display:block;color:var(--navy);font-size:1rem;margin-bottom:4px}
+.fact span{font-size:.88rem;color:var(--muted)}
+.section-title{font-size:clamp(1.7rem,4vw,2.3rem);color:var(--navy);letter-spacing:-.8px;margin:0 0 8px}
+.section-sub{margin:0 0 20px;color:var(--muted)}
+.quiz-wrap{background:white;border:1px solid var(--line);border-radius:25px;padding:clamp(18px,4vw,32px);box-shadow:0 16px 40px #082f4910;margin-bottom:30px}
+.quiz-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:13px}
+.pill{border-radius:999px;background:#e0f2fe;color:#075985;padding:7px 11px;font-weight:850;font-size:.82rem;white-space:nowrap}
+.progress{height:8px;background:#e5eff3;border-radius:99px;overflow:hidden;margin-bottom:24px}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#0891b2,#67e8f9);transition:width .25s}
+.question{font-size:clamp(1.25rem,3vw,1.7rem);line-height:1.2;color:var(--navy);margin:0 0 18px}
+.answers{display:grid;gap:10px}
+.answer{width:100%;border:1.5px solid #d4e6ed;border-radius:15px;background:#fbfeff;padding:15px;text-align:left;font:inherit;font-weight:700;color:#21475b;cursor:pointer;display:flex;gap:12px;align-items:center}
+.answer .letter{display:grid;place-items:center;width:30px;height:30px;flex:0 0 30px;background:#e0f2fe;color:#075985;border-radius:10px;font-weight:900}
+.answer:hover:not(:disabled){border-color:#0891b2;background:#f0fbff}
+.answer:disabled{cursor:default}
+.answer.correct{border-color:#22c55e;background:#f0fdf4;color:#14532d}
+.answer.wrong{border-color:#fb7185;background:#fff1f2;color:#881337}
+.answer.correct .letter{background:#bbf7d0;color:#14532d}
+.answer.wrong .letter{background:#fecdd3;color:#881337}
+.feedback{display:none;margin-top:16px;border-radius:15px;padding:14px 16px;background:#f0f9ff;border:1px solid #bae6fd;color:#164e63}
+.feedback.show{display:block}
+.feedback strong{display:block;margin-bottom:4px}
+.quiz-actions{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
+.quiz-actions .btn{min-width:130px}
+.result{display:none;text-align:center;padding:10px 0 0}
+.result.show{display:block}
+.result .score{font-size:3.5rem;font-weight:950;line-height:1;color:#0891b2;margin:12px 0}
+.result h3{font-size:1.6rem;color:var(--navy);margin:8px 0}
+.result p{max-width:560px;margin:0 auto 18px;color:var(--muted)}
+.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 34px}
+.info-card{border-radius:20px;padding:21px;background:#e0f2fe;border:1px solid #bae6fd}
+.info-card:nth-child(2){background:#fff7ed;border-color:#fed7aa}
+.info-card h3{margin:0 0 8px;color:var(--navy);font-size:1.2rem}
+.info-card p,.info-card li{color:#35566a;font-size:.94rem}
+.info-card ul{padding-left:20px;margin-bottom:0}
+.note{font-size:.83rem;color:#587383;padding:0 0 30px}
+footer{background:var(--navy);color:#d6f2f8;padding:24px 16px;text-align:center;font-size:.87rem}
+footer strong{color:white}
+@media(max-width:700px){.hero{grid-template-columns:1fr;padding-top:30px;gap:22px}.hero-art{min-height:200px}.facts{grid-template-columns:1fr}.fact{display:flex;gap:12px;align-items:flex-start}.fact b{min-width:105px}.info{grid-template-columns:1fr}h1{letter-spacing:-1.3px}.topbar small{max-width:150px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="ribbon" aria-hidden="true"></span><span>DESAFIO AZUL</span></div>
+  <small>Novembro Azul · Alfredo Chaves, ES</small>
+</header>
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div>
+      <span class="eyebrow">🧢 Saúde sem enrolação</span>
+      <h1 id="hero-title">Você cuida da roça.<br><span>E de você?</span></h1>
+      <p class="lead">Cinco perguntas rápidas, sem palestra e sem julgamento. Descubra o que você já sabe sobre saúde do homem e o que vale conversar na UBS.</p>
+      <a class="btn primary" href="#quiz">🚜 Começar o desafio <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="hero-art" aria-label="Ilustração de uma placa com mensagem sobre cuidar da saúde">
+      <div class="art-card">
+        <div class="art-icon" aria-hidden="true">👨‍🌾💙</div>
+        <strong>Quem se cuida, segue firme.</strong>
+        <p>Manutenção preventiva também vale para gente.</p>
+      </div>
+    </div>
+  </section>
+  <section class="facts" aria-label="Como funciona">
+    <div class="fact"><b>⏱️ 2 minutos</b><span>Mais rápido que procurar a chave da caminhonete.</span></div>
+    <div class="fact"><b>🧠 5 perguntas</b><span>Responda no seu ritmo. Ninguém está dando nota na sua vida.</span></div>
+    <div class="fact"><b>🤝 Sem julgamento</b><span>Errar aqui é aprender. Na UBS, é conversar.</span></div>
+  </section>
+
+  <section id="quiz" aria-labelledby="quiz-title">
+    <h2 class="section-title" id="quiz-title">Bora testar esse conhecimento?</h2>
+    <p class="section-sub">Escolha uma resposta. Depois, veja a explicação sem palavreado complicado.</p>
+    <div class="quiz-wrap">
+      <div id="quiz-content">
+        <div class="quiz-head"><span class="pill" id="question-count">Pergunta 1 de 5</span><span class="pill" id="score-live">Pontos: 0</span></div>
+        <div class="progress" role="progressbar" aria-label="Progresso do quiz" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="progress"><div class="progress-bar" id="progress-bar"></div></div>
+        <h3 class="question" id="question">PSA alterado significa que o homem tem câncer de próstata?</h3>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback" role="status" aria-live="polite"><strong id="feedback-title"></strong><span id="feedback-text"></span></div>
+        <div class="quiz-actions"><button class="btn secondary" id="restart-top" type="button">↻ Recomeçar</button><button class="btn" id="next" type="button" disabled>Próxima pergunta →</button></div>
+      </div>
+      <div class="result" id="result" aria-live="polite">
+        <div class="art-icon" aria-hidden="true">🏁💙</div>
+        <div class="score" id="final-score">0/5</div>
+        <h3 id="result-title">Desafio concluído!</h3>
+        <p id="result-text"></p>
+        <div class="result-actions"><button class="btn primary" id="restart" type="button">↻ Jogar de novo</button><button class="btn secondary" id="share" type="button">📲 Compartilhar</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="care-title">
+    <h2 class="section-title" id="care-title">E na vida real, como faz?</h2>
+    <p class="section-sub">Não precisa chegar à UBS com discurso pronto. Pode começar com “vim tirar uma dúvida”.</p>
+    <div class="info">
+      <article class="info-card">
+        <h3>🩺 Quando procurar a UBS</h3>
+        <ul>
+          <li>Se notar mudanças persistentes para urinar, sangue na urina ou outros sintomas que preocupem.</li>
+          <li>Para conversar sobre prevenção, histórico familiar e quais cuidados fazem sentido para você.</li>
+          <li>Se algo mudou no corpo e não está voltando ao normal, não deixe para “depois da colheita”.</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <h3>💙 Sobre próstata e exames</h3>
+        <p>PSA alterado não confirma câncer, e sintomas urinários podem ter várias causas. A decisão sobre exames para investigar câncer de próstata deve ser conversada individualmente com um profissional de saúde, considerando benefícios, riscos, idade, histórico e preferências.</p>
+        <p>Saúde do homem também inclui pressão, diabetes, vacinação, saúde mental, alimentação, sono e prevenção de acidentes.</p>
+      </article>
+    </div>
+    <p class="note">Este quiz é educativo e não substitui avaliação profissional. Em caso de sintomas intensos ou urgentes, procure atendimento. Para orientação e agendamento, procure sua Unidade Básica de Saúde (UBS) de referência em Alfredo Chaves.</p>
+  </section>
+</main>
+<footer><strong>Novembro Azul</strong> · Cuidar da saúde não diminui ninguém.<br>Uma campanha de informação e cuidado para a comunidade.</footer>
+<script>
+const questions = [
+ {q:"PSA alterado significa que o homem tem câncer de próstata?",a:["Sim. É certeza de câncer.","Não. O resultado precisa ser avaliado no contexto.","Só se sentir dor."],correct:1,why:"PSA pode aumentar por diferentes motivos. Um resultado alterado não confirma câncer; o profissional avalia o caso e decide se precisa investigar."},
+ {q:"Dificuldade para urinar sempre é sinal de câncer de próstata?",a:["Sim, sempre.","Não. Pode ter várias causas e merece avaliação se persistir.","É normal para todo homem envelhecer."],correct:1,why:"Alterações urinárias podem ter várias causas. Não dá para diagnosticar pelo sintoma sozinho, nem ignorar uma mudança persistente."},
+ {q:"Se não tenho sintomas, nunca preciso conversar sobre prevenção?",a:["Verdade. Só procuro ajuda quando dói.","Mito. Prevenção e exames devem ser discutidos individualmente.","Só preciso se alguém da família mandar."],correct:1,why:"Prevenção não é uma receita igual para todo mundo. Converse com a equipe de saúde sobre seu histórico, benefícios e possíveis riscos dos exames."},
+ {q:"Você percebe uma mudança persistente para urinar. Qual é a melhor atitude?",a:["Esperar meses para ver se passa.","Tomar remédio emprestado do vizinho.","Procurar a UBS para avaliação."],correct:2,why:"A UBS pode avaliar os sintomas e orientar os próximos passos. Remédio emprestado é um plano ruim até para quem gosta de improvisar."},
+ {q:"Saúde do homem é só cuidar da próstata?",a:["Sim, o resto se resolve sozinho.","Não. Também envolve pressão, diabetes, vacinação, saúde mental e hábitos.","Só conta se fizer academia."],correct:1,why:"A próstata é apenas uma parte. Acompanhamento da pressão, glicemia, vacinação, saúde mental e hábitos também fazem diferença."}
+];
+let index=0, score=0, answered=false;
+const $=id=>document.getElementById(id);
+function renderQuestion(){
+ const item=questions[index]; answered=false;
+ $("quiz-content").style.display="block"; $("result").classList.remove("show");
+ $("question-count").textContent=`Pergunta ${index+1} de ${questions.length}`;
+ $("score-live").textContent=`Pontos: ${score}`;
+ $("question").textContent=item.q;
+ $("progress-bar").style.width=`${index/questions.length*100}%`;
+ $("progress").setAttribute("aria-valuenow",index);
+ $("answers").innerHTML="";
+ $("feedback").classList.remove("show");
+ item.a.forEach((answer,i)=>{
+   const button=document.createElement("button");
+   button.type="button";button.className="answer";
+   const letter=document.createElement("span");letter.className="letter";letter.textContent=String.fromCharCode(65+i);
+   const label=document.createElement("span");label.textContent=answer;
+   button.append(letter,label);
+   button.addEventListener("click",()=>chooseAnswer(i,button));
+   $("answers").appendChild(button);
+ });
+ $("next").disabled=true;
+ $("next").textContent=index===questions.length-1?"Ver resultado →":"Próxima pergunta →";
+}
+function chooseAnswer(choice,button){
+ if(answered)return; answered=true;
+ const item=questions[index];
+ [...$("answers").children].forEach((el,i)=>{el.disabled=true;if(i===item.correct)el.classList.add("correct");});
+ if(choice===item.correct){score++;$("feedback-title").textContent="Acertou! 💙";$("feedback-text").textContent=item.why;}
+ else{$("feedback-title").textContent="Quase! Faz parte. 🧠";$("feedback-text").textContent=item.why;button.classList.add("wrong");}
+ $("feedback").classList.add("show");
+ $("score-live").textContent=`Pontos: ${score}`;
+ $("progress-bar").style.width=`${(index+1)/questions.length*100}%`;
+ $("progress").setAttribute("aria-valuenow",index+1);
+ $("next").disabled=false;
+}
+function finish(){
+ $("quiz-content").style.display="none";$("result").classList.add("show");
+ $("final-score").textContent=`${score}/${questions.length}`;
+ let title,body;
+ if(score===5){title="Fiscal da própria saúde! 🏆";body="Mandou bem. Continue buscando informação confiável e conversando com a equipe de saúde quando precisar."}
+ else if(score>=3){title="Tá no caminho certo! 💪";body="Você já sabe bastante e aprendeu mais um pouco. Lembre: informação ajuda, mas sintomas persistentes precisam de avaliação."}
+ else{title="Treino concluído. Conhecimento carregado! 🌱";body="O importante é sair daqui sabendo um pouco mais. Cuidar da saúde é manutenção, não motivo de vergonha."}
+ $("result-title").textContent=title;$("result-text").textContent=body;
+}
+function restart(){index=0;score=0;renderQuestion();$("quiz").scrollIntoView({behavior:"smooth",block:"start"});}
+$("next").addEventListener("click",()=>{if(!answered)return;if(index<questions.length-1){index++;renderQuestion()}else finish()});
+$("restart").addEventListener("click",restart);$("restart-top").addEventListener("click",restart);
+$("share").addEventListener("click",async()=>{
+ const message=`Fiz o Desafio Azul: ${score}/5! 💙 Teste seus conhecimentos sobre saúde do homem no Novembro Azul.`;
+ if(navigator.share){try{await navigator.share({title:"Desafio Azul",text:message,url:location.href});return}catch(e){}}
+ const url="https://wa.me/?text="+encodeURIComponent(message+" "+location.href);
+ window.open(url,"_blank","noopener,noreferrer");
+});
+renderQuestion();
+</script>
+</body>
+</html>
