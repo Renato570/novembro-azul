@@ -13,6 +13,10 @@ main{width:min(100% - 32px,1120px);margin:auto}.hero{min-height:calc(100svh - 64
 .reality{margin:0 0 28px;padding:clamp(28px,6vw,70px);border:1px solid #26384c;border-radius:20px;background:radial-gradient(ellipse at 100% 0,#0d4166 0,transparent 48%),linear-gradient(145deg,#080d15,#0b1726 75%);position:relative;overflow:hidden;box-shadow:0 24px 70px #0006}.reality:after{content:"!";position:absolute;right:5%;top:-12%;font-size:clamp(14rem,30vw,25rem);line-height:1;font-weight:1000;color:#ffffff06;pointer-events:none}.tag{display:inline-block;background:var(--lime);color:#15210a;font-size:.7rem;letter-spacing:1.5px;font-weight:1000;padding:8px 11px;border-radius:4px;position:relative;z-index:1}.reality h2{font-size:clamp(2.2rem,6vw,5rem);line-height:.96;letter-spacing:-.06em;text-transform:uppercase;margin:26px 0 20px;max-width:900px;position:relative;z-index:1}.reality h2 span{color:var(--cyan)}.reality .lead{font-size:clamp(1.08rem,2.3vw,1.4rem);font-weight:750;color:#fff;max-width:800px;position:relative;z-index:1}.rule{height:4px;width:76px;background:var(--blue);margin:25px 0}.reality p:not(.lead){color:#c2d0df;max-width:820px;position:relative;z-index:1}.callout{display:flex;gap:15px;align-items:flex-start;padding:19px;margin:25px 0;background:#ffffff09;border:1px solid #57c8ff45;border-left:4px solid var(--blue);border-radius:10px;position:relative;z-index:1}.callout b{color:#fff}.callout .symbol{font-size:1.7rem}.reality .last{font-size:1.12rem;font-weight:900;color:white}.reality .btn{margin-top:8px}.foot{display:block;margin-top:20px;color:#93a9bd;font-size:.77rem;max-width:800px;position:relative;z-index:1}
 .section{padding:70px 0}.kicker{color:var(--blue);font-size:.72rem;font-weight:950;letter-spacing:2px;text-transform:uppercase;margin:0 0 9px}.section h2{font-size:clamp(2rem,4.5vw,3.5rem);letter-spacing:-.055em;line-height:1;margin:0 0 14px}.sub{color:var(--muted);max-width:720px;margin:0 0 28px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:linear-gradient(145deg,#101e30,#0b1421);border:1px solid var(--line);border-radius:14px;padding:23px;min-height:210px}.card .num{color:var(--blue);font-size:.75rem;font-weight:1000;letter-spacing:1.5px}.card h3{font-size:1.15rem;margin:15px 0 8px}.card p{font-size:.92rem;color:#b7c6d6;margin:0}.notice{margin-top:18px;padding:18px 20px;border-radius:12px;background:#10283d;border:1px solid #1f5277;color:#d7e9f7;font-size:.9rem}.notice strong{color:white}.cta{margin:15px 0 75px;padding:clamp(25px,5vw,48px);background:linear-gradient(110deg,#0c3555,#0d2136);border:1px solid #245579;border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:25px}.cta h2{font-size:clamp(1.7rem,4vw,2.8rem);line-height:1.02;letter-spacing:-.05em;margin:0 0 9px}.cta p{margin:0;color:#c1d5e6;max-width:650px}.cta .btn{flex-shrink:0;background:var(--lime);color:#14200b}footer{padding:30px 18px;text-align:center;background:#03070d;border-top:1px solid #ffffff15;color:#a8b8c8;font-size:.83rem}footer strong{color:#75cfff}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}@keyframes glow{0%,100%{transform:scale(.97);opacity:.8}50%{transform:scale(1.04);opacity:1}}
+
+/* Navegação por telas: o visitante vê apenas a abertura até escolher um botão. */
+.view[hidden]{display:none!important}.view{animation:viewIn .35s ease both}.view-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:28px 0 18px}.back-btn{border:1px solid #52677f;background:#ffffff08;color:#eaf5ff;border-radius:9px;padding:11px 15px;font:inherit;font-size:.85rem;font-weight:850;cursor:pointer}.back-btn:hover{background:#ffffff15}.content-view{min-height:calc(100svh - 120px);padding-bottom:44px}.content-view .reality{margin-top:30px}.content-view .section{padding:28px 0 50px}.content-view .cta{margin-bottom:35px}@keyframes viewIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
 @media(max-width:760px){.topbar{height:58px;padding:0 16px}.topbar small{font-size:.65rem}.hero{min-height:auto;grid-template-columns:1fr;padding:62px 0 38px;gap:8px}.hero:before{width:440px;height:440px;right:-170px;top:150px}.hero h1{font-size:clamp(3.1rem,14vw,5.2rem);margin:20px 0}.hero-copy>p{font-size:1rem}.hero-actions{display:grid;grid-template-columns:1fr;margin-top:23px}.btn{width:100%;padding:14px 12px}.hero-note{font-size:.73rem!important}.visual{min-height:330px;margin-top:10px}.orb{width:290px}.silhouette{transform:scale(.78);transform-origin:center}.visual-label{bottom:2px;right:2px}.reality{padding:27px 20px;border-radius:15px}.reality h2{font-size:clamp(2.15rem,11vw,3.4rem);margin:21px 0 16px}.reality .lead{font-size:1.05rem}.reality p:not(.lead){font-size:.93rem}.callout{padding:14px;gap:10px}.section{padding:52px 0}.section h2{font-size:2.25rem}.grid{grid-template-columns:1fr;gap:10px}.card{min-height:0;padding:19px}.cta{display:block;margin-bottom:48px;padding:25px 20px}.cta .btn{margin-top:20px}.foot{font-size:.73rem}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
@@ -20,44 +24,61 @@ main{width:min(100% - 32px,1120px);margin:auto}.hero{min-height:calc(100svh - 64
 <body>
 <header class="topbar"><div class="brand"><span class="ribbon" aria-hidden="true"></span>NOVEMBRO AZUL</div><small>Saúde do homem · Informação importa</small></header>
 <main>
+<div class="view" id="home-view">
 <section class="hero" aria-labelledby="hero-title">
  <div class="hero-copy">
   <span class="eyebrow">Um recado direto para você</span>
   <h1 id="hero-title">Você cuida de tudo.<span> E de você?</span></h1>
   <p>Trabalho, família, responsabilidades. Você dá conta de muita coisa. Mas <strong>não deixe sua saúde sempre para depois.</strong></p>
-  <div class="hero-actions"><a class="btn primary" href="#choque">VER O QUE VOCÊ PRECISA SABER <span aria-hidden="true">↓</span></a><a class="btn secondary" href="#proximos-passos">COMO SE CUIDAR</a></div>
-  <p class="hero-note">Leva menos de um minuto. Não tem cadastro, pergunta ou julgamento.</p>
+  <div class="hero-actions"><button class="btn primary" type="button" data-open="reality-view">VER O QUE VOCÊ PRECISA SABER <span aria-hidden="true">↓</span></button><button class="btn secondary" type="button" data-open="care-view">COMO SE CUIDAR</button></div>
+  <p class="hero-note">Leva menos de um minuto. Sem cadastro, perguntas ou julgamento.</p>
  </div>
  <div class="visual" aria-hidden="true"><div class="orb"></div><div class="silhouette"><div class="head"></div><div class="neck"></div><div class="body"></div></div><div class="visual-label">Coragem também é se cuidar</div></div>
 </section>
-<section class="reality reveal" id="choque" aria-labelledby="reality-title">
- <span class="tag">⚠ UM ALERTA QUE NÃO DEVE SER IGNORADO</span>
- <h2 id="reality-title">O câncer de próstata pode começar <span>sem dar sinais.</span></h2>
- <p class="lead">Você pode se sentir bem, não sentir dor e ainda assim precisar conversar sobre sua saúde.</p>
- <div class="rule"></div>
- <p>Nas fases iniciais, o câncer de próstata frequentemente não provoca sintomas. Esperar aparecer dor ou dificuldade para urinar não é uma estratégia segura.</p>
- <p>Alterações urinárias podem ter várias causas, não significam necessariamente câncer, mas merecem avaliação quando persistem.</p>
- <div class="callout"><span class="symbol" aria-hidden="true">💙</span><div><b>Não é sobre fazer exame por pressão. É sobre ter informação para decidir.</b><br>A conversa com um profissional ajuda a avaliar idade, histórico familiar, benefícios e possíveis riscos dos exames.</div></div>
- <p class="last">Não deixe a vergonha, o medo ou a desinformação decidirem por você.</p>
- <a class="btn primary" href="#proximos-passos">ENTENDA O PRÓXIMO PASSO ↓</a>
- <small class="foot">A decisão sobre investigação e exames deve ser individualizada. Não existe um exame que, sozinho, confirme todos os casos de câncer de próstata.</small>
-</section>
-<section class="section reveal" id="proximos-passos" aria-labelledby="steps-title">
- <p class="kicker">Sem tabu. Sem complicação.</p><h2 id="steps-title">O que fazer na prática?</h2>
- <p class="sub">Você não precisa chegar à unidade de saúde sabendo tudo. Comece com uma conversa sincera sobre sua saúde.</p>
- <div class="grid">
-  <article class="card"><span class="num">01 / CONVERSE</span><h3>Procure a unidade de saúde</h3><p>Converse com a equipe sobre prevenção, sua idade, seu histórico familiar e suas dúvidas.</p></article>
-  <article class="card"><span class="num">02 / INFORME-SE</span><h3>Entenda os exames</h3><p>PSA e toque retal podem fazer parte da avaliação em situações indicadas. A decisão deve considerar benefícios, riscos e preferências.</p></article>
-  <article class="card"><span class="num">03 / NÃO ADIE</span><h3>Observe mudanças</h3><p>Dificuldade persistente para urinar, sangue na urina ou outros sintomas novos precisam de avaliação profissional.</p></article>
- </div>
- <div class="notice"><strong>Importante:</strong> PSA alterado não significa, por si só, câncer. E sintomas urinários podem ter outras causas. Somente uma avaliação adequada pode orientar a investigação.</div>
-</section>
-<section class="cta reveal" aria-label="Mensagem final"><div><h2>Você merece estar presente nos próximos capítulos.</h2><p>Cuide de quem depende de você. Mas lembre-se: você também merece esse cuidado. Procure sua Unidade Básica de Saúde.</p></div><a class="btn" href="#proximos-passos">COMECE COM UMA CONVERSA ↗</a></section>
+</div>
+
+<div class="view content-view" id="reality-view" hidden>
+ <div class="view-top"><span class="eyebrow">Um alerta que não deve ser ignorado</span><button class="back-btn" type="button" data-home>← Voltar ao início</button></div>
+ <section class="reality" aria-labelledby="reality-title">
+  <span class="tag">⚠ UM ALERTA QUE NÃO DEVE SER IGNORADO</span>
+  <h2 id="reality-title">O câncer de próstata pode começar <span>sem dar sinais.</span></h2>
+  <p class="lead">Você pode se sentir bem, não sentir dor e ainda assim precisar conversar sobre sua saúde.</p>
+  <div class="rule"></div>
+  <p>Nas fases iniciais, o câncer de próstata frequentemente não provoca sintomas. Esperar aparecer dor ou dificuldade para urinar não é uma estratégia segura.</p>
+  <p>Alterações urinárias podem ter várias causas, não significam necessariamente câncer, mas merecem avaliação quando persistem.</p>
+  <div class="callout"><span class="symbol" aria-hidden="true">💙</span><div><b>Não é sobre fazer exame por pressão. É sobre ter informação para decidir.</b><br>A conversa com um profissional ajuda a avaliar idade, histórico familiar, benefícios e possíveis riscos dos exames.</div></div>
+  <p class="last">Não deixe a vergonha, o medo ou a desinformação decidirem por você.</p>
+  <small class="foot">A decisão sobre investigação e exames deve ser individualizada. Não existe um exame que, sozinho, confirme todos os casos de câncer de próstata.</small>
+ </section>
+ <div class="notice"><strong>O próximo passo:</strong> procure sua Unidade Básica de Saúde e converse com a equipe sobre sua saúde e suas dúvidas.</div>
+</div>
+
+<div class="view content-view" id="care-view" hidden>
+ <div class="view-top"><span class="eyebrow">Sem tabu. Sem complicação.</span><button class="back-btn" type="button" data-home>← Voltar ao início</button></div>
+ <section class="section" aria-labelledby="steps-title">
+  <p class="kicker">Informação para agir</p><h2 id="steps-title">O que fazer na prática?</h2>
+  <p class="sub">Você não precisa chegar à unidade de saúde sabendo tudo. Comece com uma conversa sincera sobre sua saúde.</p>
+  <div class="grid">
+   <article class="card"><span class="num">01 / CONVERSE</span><h3>Procure a unidade de saúde</h3><p>Converse com a equipe sobre prevenção, sua idade, seu histórico familiar e suas dúvidas.</p></article>
+   <article class="card"><span class="num">02 / INFORME-SE</span><h3>Entenda os exames</h3><p>PSA e toque retal podem fazer parte da avaliação em situações indicadas. A decisão deve considerar benefícios, riscos e preferências.</p></article>
+   <article class="card"><span class="num">03 / NÃO ADIE</span><h3>Observe mudanças</h3><p>Dificuldade persistente para urinar, sangue na urina ou outros sintomas novos precisam de avaliação profissional.</p></article>
+  </div>
+  <div class="notice"><strong>Importante:</strong> PSA alterado não significa, por si só, câncer. E sintomas urinários podem ter outras causas. Somente uma avaliação adequada pode orientar a investigação.</div>
+ </section>
+ <section class="cta" aria-label="Mensagem final"><div><h2>Você merece estar presente nos próximos capítulos.</h2><p>Cuide de quem depende de você. Mas lembre-se: você também merece esse cuidado. Procure sua Unidade Básica de Saúde.</p></div></section>
+</div>
 </main>
 <footer><strong>Novembro Azul</strong> · Cuidar da saúde também é coisa de homem.<br><small>Conteúdo educativo. Não substitui consulta ou avaliação profissional.</small></footer>
 <script>
-const items=document.querySelectorAll('.reveal');
-if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});items.forEach(item=>observer.observe(item));}else{items.forEach(item=>item.classList.add('visible'));}
+const home=document.getElementById('home-view');
+const views=[...document.querySelectorAll('.content-view')];
+function showView(id){
+  home.hidden=id!=='home-view';
+  views.forEach(view=>view.hidden=view.id!==id);
+  window.scrollTo({top:0,behavior:'instant'});
+}
+document.querySelectorAll('[data-open]').forEach(button=>button.addEventListener('click',()=>showView(button.dataset.open)));
+document.querySelectorAll('[data-home]').forEach(button=>button.addEventListener('click',()=>showView('home-view')));
 </script>
 </body>
 </html>
